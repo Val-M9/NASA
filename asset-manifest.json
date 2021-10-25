@@ -1,0 +1,36 @@
+{
+  "files": {
+    "static/js/0.9071eeb3.chunk.js": "/nasa/static/js/0.9071eeb3.chunk.js",
+    "static/js/0.9071eeb3.chunk.js.map": "/nasa/static/js/0.9071eeb3.chunk.js.map",
+    "main.css": "/nasa/static/css/main.63cd13e6.chunk.css",
+    "main.js": "/nasa/static/js/main.5ead4b57.chunk.js",
+    "main.js.map": "/nasa/static/js/main.5ead4b57.chunk.js.map",
+    "runtime-main.js": "/nasa/static/js/runtime-main.773f501e.js",
+    "runtime-main.js.map": "/nasa/static/js/runtime-main.773f501e.js.map",
+    "static/css/3.a95be28f.chunk.css": "/nasa/static/css/3.a95be28f.chunk.css",
+    "static/js/3.7e7262ec.chunk.js": "/nasa/static/js/3.7e7262ec.chunk.js",
+    "static/js/3.7e7262ec.chunk.js.map": "/nasa/static/js/3.7e7262ec.chunk.js.map",
+    "static/js/4.58f394ad.chunk.js": "/nasa/static/js/4.58f394ad.chunk.js",
+    "static/js/4.58f394ad.chunk.js.map": "/nasa/static/js/4.58f394ad.chunk.js.map",
+    "static/js/5.2dc1b2f4.chunk.js": "/nasa/static/js/5.2dc1b2f4.chunk.js",
+    "static/js/5.2dc1b2f4.chunk.js.map": "/nasa/static/js/5.2dc1b2f4.chunk.js.map",
+    "static/js/6.5ca5155e.chunk.js": "/nasa/static/js/6.5ca5155e.chunk.js",
+    "static/js/6.5ca5155e.chunk.js.map": "/nasa/static/js/6.5ca5155e.chunk.js.map",
+    "static/js/7.a0ba0e58.chunk.js": "/nasa/static/js/7.a0ba0e58.chunk.js",
+    "static/js/7.a0ba0e58.chunk.js.map": "/nasa/static/js/7.a0ba0e58.chunk.js.map",
+    "index.html": "/nasa/index.html",
+    "static/css/3.a95be28f.chunk.css.map": "/nasa/static/css/3.a95be28f.chunk.css.map",
+    "static/css/main.63cd13e6.chunk.css.map": "/nasa/static/css/main.63cd13e6.chunk.css.map",
+    "static/js/0.9071eeb3.chunk.js.LICENSE.txt": "/nasa/static/js/0.9071eeb3.chunk.js.LICENSE.txt",
+    "static/js/3.7e7262ec.chunk.js.LICENSE.txt": "/nasa/static/js/3.7e7262ec.chunk.js.LICENSE.txt",
+    "static/media/Ripple-1.4s-200px.svg": "/nasa/static/media/Ripple-1.4s-200px.f4eae5d3.svg",
+    "static/media/logo.b5bf6358.png": "/nasa/static/media/logo.b5bf6358.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.773f501e.js",
+    "static/css/3.a95be28f.chunk.css",
+    "static/js/3.7e7262ec.chunk.js",
+    "static/css/main.63cd13e6.chunk.css",
+    "static/js/main.5ead4b57.chunk.js"
+  ]
+}

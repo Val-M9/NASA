@@ -1,0 +1,1 @@
+{"version":3,"sources":["pages/Epic.js"],"names":["Epic"],"mappings":"4GAAA,uBAMeA,UAJF,WACX,OAAO","file":"static/js/6.5ca5155e.chunk.js","sourcesContent":["import React from \"react\";\r\n\r\nconst Epic = () => {\r\n  return <div>Epic</div>;\r\n};\r\n\r\nexport default Epic;\r\n"],"sourceRoot":""}

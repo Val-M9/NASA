@@ -1,0 +1,1 @@
+{"version":3,"sources":["pages/Home.js"],"names":["Home","className"],"mappings":"8HAQeA,UARF,WACX,OACE,qBAAKC,UAAU,YAAf,SACE","file":"static/js/7.a0ba0e58.chunk.js","sourcesContent":["const Home = () => {\r\n  return (\r\n    <div className=\"home-page\">\r\n      <h1>Home Page</h1>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default Home;\r\n"],"sourceRoot":""}
