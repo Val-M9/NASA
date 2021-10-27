@@ -21,12 +21,12 @@ const Navbar = () => {
           APOD
         </Menu.Item>
         <Menu.Item key={3}>
-          <Link to={ROUTES.EPIC} title={navItems.EPIC} />
-          EPIC
+          <Link to={ROUTES.ASTEROIDS} title={navItems.Asteroids} />
+          Asteroids
         </Menu.Item>
         <Menu.Item key={4}>
-          <Link to={ROUTES.NeoWs} title={navItems.NeoWs} />
-          Asteroids
+          <Link to={ROUTES.MARS_ROVER_PHOTOS} title={navItems.MARS_ROVER_PHOTOS} />
+          Mars Rover Photos
         </Menu.Item>
       </Menu>
     </Sider>

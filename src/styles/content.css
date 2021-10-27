@@ -25,6 +25,11 @@ h1 {
   font-size: 14px;
 }
 
+.apod-video {
+  display: flex;
+  justify-content: center;
+}
+
 .apod-picture {
   display: flex;
   flex-direction: column;

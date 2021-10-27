@@ -10,8 +10,8 @@ import "./styles/content.css";
 
 const Home = React.lazy(() => import("./pages/Home"));
 const PicOfDay = React.lazy(() => import("./pages/PicOfDay"));
-const NeoWs = React.lazy(() => import("./pages/NearEarthObjects/NearEarthObjects"));
-const Epic = React.lazy(() => import("./pages/Epic"));
+const Asteroids = React.lazy(() => import("./pages/NearEarthObjects/NearEarthObjects"));
+const Mars = React.lazy(() => import("./pages/MarsPhotos"));
 
 function App() {
   const { Content, Header, Footer } = Layout;
@@ -29,8 +29,8 @@ function App() {
                   <div className="wrapper">
                     <Route exact path={ROUTES.HOME} component={Home} />
                     <Route exact path={ROUTES.PIC_OF_DAY} component={PicOfDay} />
-                    <Route exact path={ROUTES.EPIC} component={Epic} />
-                    <Route exact path={ROUTES.NeoWs} component={NeoWs} />
+                    <Route exact path={ROUTES.ASTEROIDS} component={Asteroids} />
+                    <Route exact path={ROUTES.MARS_ROVER_PHOTOS} component={Mars} />
                   </div>
                 </Content>
                 <Footer className="footer">Website is developed with NASA open API 2021</Footer>
