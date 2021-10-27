@@ -29,6 +29,11 @@ const PicOfDay = () => {
     return current && current < moment("1995-06-16");
   };
 
+  const hdPicture = () => {
+    console.log("click", picture.hdurl);
+    return <img src={picture.hdurl} alt="hd APOD" />;
+  };
+
   return (
     <div>
       <h1>Astonomy Picture of the Day</h1>
@@ -41,7 +46,7 @@ const PicOfDay = () => {
       </div>
       {picture ? (
         <>
-          <div className="content">
+          <div>
             {picture.media_type === "video" ? (
               <div>
                 <iframe
@@ -54,12 +59,15 @@ const PicOfDay = () => {
                 />
               </div>
             ) : (
-              <div>
+              <div className="apod-picture">
                 <img src={picture.url} alt="APOD" />
+                <a href={picture.hdurl} target="_blank" rel="noopener noreferrer">
+                  Link to HD format
+                </a>
               </div>
             )}
           </div>
-          <p className="explanation">{picture.explanation}</p>
+          <p className="apod-explanation">{picture.explanation}</p>
         </>
       ) : (
         <img className="loader" src={loader} alt="Loader" />
