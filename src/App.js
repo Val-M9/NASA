@@ -11,7 +11,7 @@ import "./styles/content.css";
 const Home = React.lazy(() => import("./pages/Home"));
 const PicOfDay = React.lazy(() => import("./pages/PicOfDay"));
 const Asteroids = React.lazy(() => import("./pages/NearEarthObjects/NearEarthObjects"));
-const Mars = React.lazy(() => import("./pages/MarsPhotos"));
+const Mars = React.lazy(() => import("./pages/MarsPhotos/MarsRovers"));
 
 function App() {
   const { Content, Header, Footer } = Layout;

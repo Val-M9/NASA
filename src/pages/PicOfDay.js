@@ -18,7 +18,6 @@ const PicOfDay = () => {
     };
     result();
   }, [date]);
-  console.log(picture);
 
   const changeDateHandler = (d) => {
     setDate(d && d._d.toISOString().split("T")[0]);
