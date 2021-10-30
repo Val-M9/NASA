@@ -3,6 +3,14 @@ h1 {
   font-size: 31px;
 }
 
+.text-green {
+  color: rgb(17, 94, 17);
+}
+
+.text-red {
+  color: rgb(129, 2, 2);
+}
+
 .wrapper {
   margin: 20px;
   min-height: 600px;

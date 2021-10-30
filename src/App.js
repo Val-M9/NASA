@@ -12,6 +12,7 @@ const Home = React.lazy(() => import("./pages/Home"));
 const PicOfDay = React.lazy(() => import("./pages/PicOfDay"));
 const Asteroids = React.lazy(() => import("./pages/NearEarthObjects/NearEarthObjects"));
 const Mars = React.lazy(() => import("./pages/MarsPhotos/MarsRovers"));
+const Curiosity = React.lazy(() => import("./pages/MarsPhotos/Curiosity"));
 
 function App() {
   const { Content, Header, Footer } = Layout;
@@ -19,25 +20,26 @@ function App() {
   return (
     <>
       <HashRouter>
-        <React.Suspense className="loader" fallback={loader}>
-          <Switch>
+        <Switch>
+          <Layout>
+            <Navbar />
             <Layout>
-              <Navbar />
-              <Layout>
-                <Header className="header" />
-                <Content>
-                  <div className="wrapper">
+              <Header className="header" />
+              <Content>
+                <div className="wrapper">
+                  <React.Suspense fallback={<img src={loader} alt="loader" className="loader" />}>
                     <Route exact path={ROUTES.HOME} component={Home} />
                     <Route exact path={ROUTES.PIC_OF_DAY} component={PicOfDay} />
                     <Route exact path={ROUTES.ASTEROIDS} component={Asteroids} />
                     <Route exact path={ROUTES.MARS_ROVER_PHOTOS} component={Mars} />
-                  </div>
-                </Content>
-                <Footer className="footer">Website is developed with NASA open API 2021</Footer>
-              </Layout>
+                    {/* <Route exact path={ROUTES.CURIOSITY} component={Curiosity} /> */}
+                  </React.Suspense>
+                </div>
+              </Content>
+              <Footer className="footer">Website is developed with NASA open API 2021</Footer>
             </Layout>
-          </Switch>
-        </React.Suspense>
+          </Layout>
+        </Switch>
       </HashRouter>
     </>
   );

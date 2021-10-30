@@ -1,6 +1,5 @@
 import { Card } from "antd";
 import Meta from "antd/lib/card/Meta";
-import React from "react";
 
 const Rover = ({ name, img, photos, status, launchDate, landingDate, finalDate }) => {
   return (
@@ -10,6 +9,9 @@ const Rover = ({ name, img, photos, status, launchDate, landingDate, finalDate }
       cover={<img src={img} height={200} alt="rover" />}
       hoverable>
       <Meta description="Information" style={{ marginBottom: 10 }} />
+      <p className={status === "active" ? "text-green" : "text-red"}>
+        <b>Status:</b> {status}
+      </p>
       <p>
         <b>Launch date:</b> {launchDate}
       </p>
@@ -20,10 +22,7 @@ const Rover = ({ name, img, photos, status, launchDate, landingDate, finalDate }
         <b>Finale date:</b> {finalDate}
       </p>
       <p>
-        <b>Status:</b> {status}
-      </p>
-      <p>
-        <b>Total Photos Amount: </b> {photos}
+        <b>Total Photo Amount: </b> {photos}
       </p>
     </Card>
   );
