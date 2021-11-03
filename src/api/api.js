@@ -19,9 +19,9 @@ export async function asteroidsAPI(startDate, endDate) {
 }
 
 export const marsAPI = {
-  async curiosity() {
+  async curiosityGetPhotos(camera, date) {
     const { data } = await api.get(
-      `/mars-photos/api/v1/rovers/curiosity/photos?sol=0&api_key=${key}`,
+      `/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${date}&camera=${camera}&page=1&api_key=${key}`,
     );
     return data;
   },

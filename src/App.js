@@ -13,6 +13,8 @@ const PicOfDay = React.lazy(() => import("./pages/PicOfDay"));
 const Asteroids = React.lazy(() => import("./pages/NearEarthObjects/NearEarthObjects"));
 const Mars = React.lazy(() => import("./pages/MarsPhotos/MarsRovers"));
 const Curiosity = React.lazy(() => import("./pages/MarsPhotos/Curiosity"));
+const Opportunity = React.lazy(() => import("./pages/MarsPhotos/Opportunity"));
+const Spirit = React.lazy(() => import("./pages/MarsPhotos/Spirit"));
 
 function App() {
   const { Content, Header, Footer } = Layout;
@@ -31,8 +33,10 @@ function App() {
                     <Route exact path={ROUTES.HOME} component={Home} />
                     <Route exact path={ROUTES.PIC_OF_DAY} component={PicOfDay} />
                     <Route exact path={ROUTES.ASTEROIDS} component={Asteroids} />
-                    <Route exact path={ROUTES.MARS_ROVER_PHOTOS} component={Mars} />
-                    {/* <Route exact path={ROUTES.CURIOSITY} component={Curiosity} /> */}
+                    <Route exact path={ROUTES.MARS_ROVERS} component={Mars} />
+                    <Route exact path={ROUTES.CURIOSITY} component={Curiosity} />
+                    <Route exact path={ROUTES.OPPORTUNITY} component={Opportunity} />
+                    <Route exact path={ROUTES.SPIRIT} component={Spirit} />
                   </React.Suspense>
                 </div>
               </Content>

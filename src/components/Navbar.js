@@ -24,7 +24,7 @@ const Navbar = () => {
           Asteroids
         </Menu.Item>
         <Menu.Item key={4}>
-          <Link to={ROUTES.MARS_ROVER_PHOTOS} title={navItems.MARS_ROVER_PHOTOS} />
+          <Link to={ROUTES.MARS_ROVERS} title={navItems.MARS_ROVERS} />
           Mars Rover Photos
         </Menu.Item>
       </Menu>

@@ -14,8 +14,6 @@ const MarsPhotos = () => {
   const [spirit, setSpirit] = useState(null);
   const [opportunity, setOpportunity] = useState(null);
 
-  const [curiosityPhoto, setCuriosityPhoto] = useState(null);
-
   useEffect(() => {
     const result = async () => {
       const response = await marsAPI.curiosityGetManifest();
@@ -40,22 +38,12 @@ const MarsPhotos = () => {
     result();
   }, []);
 
-  useEffect(() => {
-    const result = async () => {
-      const response = await marsAPI.curiosity();
-      setCuriosityPhoto(response);
-    };
-    result();
-  }, []);
-
-  console.log("photo", curiosityPhoto);
-
   return (
     <>
       {curiosity || opportunity || spirit ? (
         <>
           <h1>Mars Rover Photos</h1>
-          <p className="mars-choose-p">Choose the rover.</p>
+          <p className="mars--choose-p">Choose the rover.</p>
           <div className="mars-wrapper">
             {curiosity && (
               <Link to={ROUTES.CURIOSITY}>
