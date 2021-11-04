@@ -43,7 +43,7 @@ const MarsPhotos = () => {
       {curiosity || opportunity || spirit ? (
         <>
           <h1>Mars Rover Photos</h1>
-          <p className="mars--choose-p">Choose the rover.</p>
+          <p className="mars--choose-p bordered">Choose the rover.</p>
           <div className="mars-wrapper">
             {curiosity && (
               <Link to={ROUTES.CURIOSITY}>

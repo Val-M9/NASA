@@ -10,6 +10,8 @@ const PicOfDay = () => {
   const [date, setDate] = useState(null);
 
   const today = new Date(Date.now()).toISOString().split("T")[0];
+  const tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1);
 
   useEffect(() => {
     let result = async () => {
@@ -25,7 +27,7 @@ const PicOfDay = () => {
   };
 
   const disabledDate = (current) => {
-    return current && current < moment("1995-06-16");
+    return current < moment("1995-06-16", "YYYY-MM-DD") || current > tomorrow;
   };
 
   return (

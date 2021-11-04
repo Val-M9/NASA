@@ -41,7 +41,13 @@ const Curiosity = () => {
   };
 
   const disabledDate = (current) => {
-    return curiosity && current && current < moment(curiosity.landing_date);
+    const today = new Date(Date.now()).toISOString().split("T")[0];
+
+    if (curiosity) {
+      const start = moment(curiosity.landing_date, "YYYY-MM-DD");
+      const end = moment(curiosity.final_date, "YYYY-MM-DD");
+      return current < start || current > moment(today) || current > end;
+    }
   };
 
   return (
@@ -59,7 +65,7 @@ const Curiosity = () => {
           km (1.5 mi) from the center of the rover's touchdown target after a 560 million km (350
           million mi) journey.
         </p>
-        <p className="rover--p-bordered">
+        <p className="rover--p bordered">
           On this page you can choose the date and select on of the rover's cameras to see the
           photos taken.
         </p>
@@ -70,13 +76,13 @@ const Curiosity = () => {
             defaultValue="Choose the Camera"
             style={{ width: 250 }}
             required>
-            <Option value="fhaz">Front Hazard Avoidance Camera</Option>
-            <Option value="rhaz">Rear Hazard Avoidance Camera </Option>
-            <Option value="mast">Mast Camera</Option>
-            <Option value="chemcam">Chemistry and Camera Complex</Option>
-            <Option value="mahli">Mars Hand Lens Imager</Option>
-            <Option value="mardi">Mars Descent Imager</Option>
-            <Option value="navcam">Navigation Camera</Option>
+            <Option value="FHAZ">Front Hazard Avoidance Camera</Option>
+            <Option value="RHAZ">Rear Hazard Avoidance Camera </Option>
+            <Option value="MAST">Mast Camera</Option>
+            <Option value="CHEMCAM">Chemistry and Camera Complex</Option>
+            <Option value="MAHLI">Mars Hand Lens Imager</Option>
+            <Option value="MARDI">Mars Descent Imager</Option>
+            <Option value="NAVCAM">Navigation Camera</Option>
           </Select>
           <DatePicker
             className="rover--form-item"
@@ -88,11 +94,21 @@ const Curiosity = () => {
       <div>
         <div>
           {photos && photos.length > 0 ? (
-            <div className="rover--photo">
-              {photos.map((photo) => (
-                <img className="rover--photo-item" key={photo.id} src={photo.img_src} alt="mars" />
-              ))}
-            </div>
+            <>
+              <div className="rover--photo">
+                <p className="rover--p bordered">
+                  {photos.length} photos was taken by {camera} camera on {date}.
+                </p>
+                {photos.map((photo) => (
+                  <img
+                    className="rover--photo-item"
+                    key={photo.id}
+                    src={photo.img_src}
+                    alt="mars"
+                  />
+                ))}
+              </div>
+            </>
           ) : date ? (
             <h2 className="text-red">Sorry it appears no photo from this camera on {date}</h2>
           ) : (
