@@ -1,18 +1,59 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import moment from "moment";
 import { DoubleLeftOutlined } from "@ant-design/icons";
 import { DatePicker, Select } from "antd";
 import { ROUTES } from "../../constants/routes";
 import { marsAPI } from "../../api/api";
+import Pages from "../../components/Pages";
+import loader from "../../assets/loader/Ripple-1.4s-200px.svg";
 
 const Curiosity = () => {
   const { Option } = Select;
   const history = useHistory();
   const [curiosity, setCuriosity] = useState(null);
-  const [photos, setPhotos] = useState(null);
+  const [photos, setPhotos] = useState([]);
   const [camera, setCamera] = useState("");
   const [date, setDate] = useState(null);
+
+  //for pagination
+  const photosPerPage = 25;
+  const [offset, setOffset] = useState(0);
+  const [currentPagePhotos, setCurrentPagePhotos] = useState([]);
+
+  const photosRef = useRef();
+  photosRef.current = photos;
+  const offsetRef = useRef();
+  offsetRef.current = offset;
+
+  const setPhotosForCurrentPage = useCallback(() => {
+    setCurrentPagePhotos(photosRef.current.slice(offset, offset + photosPerPage));
+  }, [photosRef, offset]);
+
+  const changePageHandler = (pageNumber) => {
+    const currentPage = pageNumber - 1;
+    const offset = currentPage * photosPerPage;
+    setOffset(offset);
+    setPhotosForCurrentPage();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  //date settings
+  const changeDateHandler = (d) => {
+    setDate(d && d._d.toISOString().split("T")[0]);
+    return date;
+  };
+  const disabledDate = (current) => {
+    const today = new Date(Date.now()).toISOString().split("T")[0];
+    if (curiosity) {
+      const start = moment(curiosity.landing_date, "YYYY-MM-DD");
+      const end = moment(curiosity.final_date, "YYYY-MM-DD");
+      return current < start || current > moment(today) || current > end;
+    }
+  };
 
   useEffect(() => {
     const result = async () => {
@@ -26,28 +67,13 @@ const Curiosity = () => {
     const result = async () => {
       const response = await marsAPI.curiosityGetPhotos(camera, date);
       setPhotos(response.photos);
+      setPhotosForCurrentPage();
     };
     result();
-  }, [camera, date]);
+  }, [camera, date, setPhotosForCurrentPage]);
 
-  console.log("photo", photos);
-
-  const handleCameraChange = (value) => {
+  const changeCameraHandler = (value) => {
     setCamera(value);
-  };
-  const changeDateHandler = (d) => {
-    setDate(d && d._d.toISOString().split("T")[0]);
-    return date;
-  };
-
-  const disabledDate = (current) => {
-    const today = new Date(Date.now()).toISOString().split("T")[0];
-
-    if (curiosity) {
-      const start = moment(curiosity.landing_date, "YYYY-MM-DD");
-      const end = moment(curiosity.final_date, "YYYY-MM-DD");
-      return current < start || current > moment(today) || current > end;
-    }
   };
 
   return (
@@ -72,7 +98,7 @@ const Curiosity = () => {
         <form className="rover--form">
           <Select
             className="rover--form-item"
-            onChange={handleCameraChange}
+            onChange={changeCameraHandler}
             defaultValue="Choose the Camera"
             style={{ width: 250 }}
             required>
@@ -99,14 +125,26 @@ const Curiosity = () => {
                 <p className="rover--p bordered">
                   {photos.length} photos was taken by {camera} camera on {date}.
                 </p>
-                {photos.map((photo) => (
-                  <img
-                    className="rover--photo-item"
-                    key={photo.id}
-                    src={photo.img_src}
-                    alt="mars"
-                  />
-                ))}
+                {currentPagePhotos.length > 0 ? (
+                  currentPagePhotos.map((photo) => (
+                    <img
+                      className="rover--photo-item"
+                      key={photo.id}
+                      src={photo.img_src}
+                      alt="mars"
+                    />
+                  ))
+                ) : (
+                  <img className="loader" src={loader} alt="Loader gif" />
+                )}
+              </div>
+              <div className="center">
+                <Pages
+                  photosPerPage={photosPerPage}
+                  changePageHandler={changePageHandler}
+                  photosCount={photos.length}
+                  photos={photos}
+                />
               </div>
             </>
           ) : date ? (
