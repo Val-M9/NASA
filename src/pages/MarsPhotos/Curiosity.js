@@ -16,15 +16,13 @@ const Curiosity = () => {
   const [camera, setCamera] = useState("");
   const [date, setDate] = useState(null);
 
-  //for pagination
+  // For Pagination
   const photosPerPage = 25;
   const [offset, setOffset] = useState(0);
   const [currentPagePhotos, setCurrentPagePhotos] = useState([]);
 
   const photosRef = useRef();
   photosRef.current = photos;
-  const offsetRef = useRef();
-  offsetRef.current = offset;
 
   const setPhotosForCurrentPage = useCallback(() => {
     setCurrentPagePhotos(photosRef.current.slice(offset, offset + photosPerPage));
@@ -39,20 +37,6 @@ const Curiosity = () => {
       top: 0,
       behavior: "smooth",
     });
-  };
-
-  //date settings
-  const changeDateHandler = (d) => {
-    setDate(d && d._d.toISOString().split("T")[0]);
-    return date;
-  };
-  const disabledDate = (current) => {
-    const today = new Date(Date.now()).toISOString().split("T")[0];
-    if (curiosity) {
-      const start = moment(curiosity.landing_date, "YYYY-MM-DD");
-      const end = moment(curiosity.final_date, "YYYY-MM-DD");
-      return current < start || current > moment(today) || current > end;
-    }
   };
 
   useEffect(() => {
@@ -74,6 +58,19 @@ const Curiosity = () => {
 
   const changeCameraHandler = (value) => {
     setCamera(value);
+  };
+  const changeDateHandler = (d) => {
+    setDate(d && d._d.toISOString().split("T")[0]);
+    return date;
+  };
+
+  const disabledDate = (current) => {
+    const today = new Date(Date.now()).toISOString().split("T")[0];
+    if (curiosity) {
+      const start = moment(curiosity.landing_date, "YYYY-MM-DD");
+      const end = moment(curiosity.final_date, "YYYY-MM-DD");
+      return current < start || current > moment(today) || current > end;
+    }
   };
 
   return (
