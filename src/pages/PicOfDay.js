@@ -23,6 +23,7 @@ const PicOfDay = () => {
 
   const changeDateHandler = (d) => {
     setDate(d && d._d.toISOString().split("T")[0]);
+    console.log(d);
     return date;
   };
 

@@ -65,14 +65,13 @@ const Curiosity = () => {
   };
 
   const disabledDate = (current) => {
-    const today = new Date(Date.now()).toISOString().split("T")[0];
     if (curiosity) {
       const start = moment(curiosity.landing_date, "YYYY-MM-DD");
-      const end = moment(curiosity.final_date, "YYYY-MM-DD");
-      return current < start || current > moment(today) || current > end;
+      const end = moment(curiosity.max_date, "YYYY-MM-DD");
+      return current < start || current > end;
     }
   };
-
+  console.log(curiosity);
   return (
     <div className="rover--wrapper">
       <div className="rover--header">
@@ -80,7 +79,7 @@ const Curiosity = () => {
           <DoubleLeftOutlined /> Back
         </button>
         <h1>Curiosity</h1>
-        <p className="rover--p">
+        <p className="rover--description">
           Curiosity is a car-sized Mars rover designed to explore the Gale crater on Mars as part of
           NASA's Mars Science Laboratory (MSL) mission. Curiosity was launched from Cape Canaveral
           (CCAFS) on 26 November 2011, at 15:02:00 UTC and landed on Aeolis Palus inside Gale crater
@@ -88,8 +87,8 @@ const Curiosity = () => {
           km (1.5 mi) from the center of the rover's touchdown target after a 560 million km (350
           million mi) journey.
         </p>
-        <p className="rover--p bordered">
-          On this page you can choose the date and select on of the rover's cameras to see the
+        <p className="rover--description bordered">
+          On this page you can choose the date and select one of the rover's cameras to see the
           photos taken.
         </p>
         <form className="rover--form">

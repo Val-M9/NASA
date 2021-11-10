@@ -40,7 +40,7 @@ function App() {
                   </React.Suspense>
                 </div>
               </Content>
-              <Footer className="footer">Website is developed with NASA open API 2021</Footer>
+              <Footer className="footer">Website is developed using NASA open API 2021</Footer>
             </Layout>
           </Layout>
         </Switch>

@@ -37,6 +37,7 @@ const MarsPhotos = () => {
     };
     result();
   }, []);
+  console.log(curiosity);
 
   return (
     <>

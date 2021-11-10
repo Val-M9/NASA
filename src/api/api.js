@@ -19,7 +19,7 @@ export async function asteroidsAPI(startDate, endDate) {
 }
 
 export const marsAPI = {
-  async curiosityGetPhotos(camera, date, page) {
+  async curiosityGetPhotos(camera, date) {
     const { data } = await api.get(
       `/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${date}&camera=${camera}&api_key=${key}`,
     );
@@ -30,9 +30,9 @@ export const marsAPI = {
     return data.photo_manifest;
   },
 
-  async spirit() {
+  async spiritGetPhotos(camera, date) {
     const { data } = await api.get(
-      `/mars-photos/api/v1/rovers/spirit/photos?sol=400&api_key=${key}`,
+      `/mars-photos/api/v1/rovers/spirit/photos?earth_date=${date}&camera=${camera}&api_key=${key}`,
     );
     return data;
   },
@@ -45,12 +45,10 @@ export const marsAPI = {
     const { data } = await api.get(`/mars-photos/api/v1/manifests/opportunity?api_key=${key}`);
     return data.photo_manifest;
   },
-  async opportunityGetPhoto() {
+  async opportunityGetPhotos(camera, date) {
     const { data } = await api.get(
-      `/mars-photos/api/v1/rovers/opportunity/photos?sol=51&api_key=${key}`,
+      `/mars-photos/api/v1/rovers/opportunity/photos?earth_date=${date}&camera=${camera}&api_key=${key}`,
     );
     return data;
   },
 };
-
-//?earth_date=${date}&camera=${camera}&api_key=${key}

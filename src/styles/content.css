@@ -175,7 +175,7 @@ h2 {
   width: 100%;
 }
 
-.rover--p {
+.rover--description {
   text-indent: 20px;
   padding: 5px;
   padding-right: 20px;
@@ -186,6 +186,7 @@ h2 {
   border-top: 1px solid teal;
   max-width: 675px;
   font-size: 16px;
+  padding: 3px 20px;
 }
 
 .center {
