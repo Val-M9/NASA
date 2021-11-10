@@ -44,6 +44,13 @@ h2 {
   font-size: 14px;
 }
 
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .apod-video {
   display: flex;
   justify-content: center;

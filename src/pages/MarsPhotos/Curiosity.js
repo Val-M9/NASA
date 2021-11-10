@@ -118,9 +118,15 @@ const Curiosity = () => {
           {photos && photos.length > 0 ? (
             <>
               <div className="rover--photo">
-                <p className="rover--p bordered">
-                  {photos.length} photos was taken by {camera} camera on {date}.
-                </p>
+                {photos.length > 1 ? (
+                  <p className="rover--p bordered">
+                    {photos.length} photos were taken by {camera} camera on {date}.
+                  </p>
+                ) : (
+                  <p className="rover--p bordered">
+                    {photos.length} photo was taken by {camera} camera on {date}.
+                  </p>
+                )}
                 {currentPagePhotos.length > 0 ? (
                   currentPagePhotos.map((photo) => (
                     <img
