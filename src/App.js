@@ -29,8 +29,8 @@ function App() {
               <Layout>
                 <Header className="header" />
                 <Content>
-                  <Route exact path={ROUTES.HOME} component={Home} />
                   <div className="wrapper">
+                    <Route exact path={ROUTES.HOME} component={Home} />
                     <Route exact path={ROUTES.PIC_OF_DAY} component={PicOfDay} />
                     <Route exact path={ROUTES.ASTEROIDS} component={Asteroids} />
                     <Route exact path={ROUTES.MARS_ROVERS} component={Mars} />

@@ -44,12 +44,9 @@ h2 {
 }
 
 .home {
-  margin: 0;
-  display: block;
-
   min-height: 200vh;
   width: 100%;
-  background-image: url("../assets/img/home-page.jpg");
+  background-image: url(../assets/img/home-page.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
