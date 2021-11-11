@@ -1,0 +1,2 @@
+(this["webpackJsonpnasa-app"]=this["webpackJsonpnasa-app"]||[]).push([[13],{339:function(e,s,a){"use strict";a.r(s);var c=a(6);s.default=function(){return Object(c.jsxs)("div",{className:"home",children:[Object(c.jsx)("h1",{style:{color:"#fff"},children:"ome Page"}),Object(c.jsx)("p",{className:"bordered",children:"Nothing to do here!"})]})}}}]);
+//# sourceMappingURL=13.4d33b7c8.chunk.js.map
