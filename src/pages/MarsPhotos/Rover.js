@@ -19,7 +19,7 @@ const Rover = ({ name, img, photos, status, launchDate, landingDate, finalDate }
         <b>Landing date:</b> {landingDate}
       </p>
       <p>
-        <b>Finale date:</b> {finalDate}
+        <b>Last date:</b> {finalDate}
       </p>
       <p>
         <b>Total Photo Amount: </b> {photos}

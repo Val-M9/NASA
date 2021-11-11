@@ -24,24 +24,24 @@ function App() {
       <HashRouter>
         <Switch>
           <Layout>
-            <Navbar />
-            <Layout>
-              <Header className="header" />
-              <Content>
-                <div className="wrapper">
-                  <React.Suspense fallback={<img src={loader} alt="loader" className="loader" />}>
-                    <Route exact path={ROUTES.HOME} component={Home} />
+            <React.Suspense fallback={<img src={loader} alt="loader" className="loader" />}>
+              <Navbar />
+              <Layout>
+                <Header className="header" />
+                <Content>
+                  <Route exact path={ROUTES.HOME} component={Home} />
+                  <div className="wrapper">
                     <Route exact path={ROUTES.PIC_OF_DAY} component={PicOfDay} />
                     <Route exact path={ROUTES.ASTEROIDS} component={Asteroids} />
                     <Route exact path={ROUTES.MARS_ROVERS} component={Mars} />
                     <Route exact path={ROUTES.CURIOSITY} component={Curiosity} />
                     <Route exact path={ROUTES.OPPORTUNITY} component={Opportunity} />
                     <Route exact path={ROUTES.SPIRIT} component={Spirit} />
-                  </React.Suspense>
-                </div>
-              </Content>
-              <Footer className="footer">Website is developed using NASA open API 2021</Footer>
-            </Layout>
+                  </div>
+                </Content>
+                <Footer className="footer">Website is developed using NASA open API 2021</Footer>
+              </Layout>
+            </React.Suspense>
           </Layout>
         </Switch>
       </HashRouter>
