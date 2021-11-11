@@ -27,16 +27,18 @@ function App() {
             <React.Suspense fallback={<img src={loader} alt="loader" className="loader" />}>
               <Navbar />
               <Layout>
-                <Header className="header" />
                 <Content>
+                  <Header className="header" />
                   <div className="wrapper">
                     <Route exact path={ROUTES.HOME} component={Home} />
-                    <Route exact path={ROUTES.PIC_OF_DAY} component={PicOfDay} />
-                    <Route exact path={ROUTES.ASTEROIDS} component={Asteroids} />
-                    <Route exact path={ROUTES.MARS_ROVERS} component={Mars} />
-                    <Route exact path={ROUTES.CURIOSITY} component={Curiosity} />
-                    <Route exact path={ROUTES.OPPORTUNITY} component={Opportunity} />
-                    <Route exact path={ROUTES.SPIRIT} component={Spirit} />
+                    <div className="margin">
+                      <Route exact path={ROUTES.PIC_OF_DAY} component={PicOfDay} />
+                      <Route exact path={ROUTES.ASTEROIDS} component={Asteroids} />
+                      <Route exact path={ROUTES.MARS_ROVERS} component={Mars} />
+                      <Route exact path={ROUTES.CURIOSITY} component={Curiosity} />
+                      <Route exact path={ROUTES.OPPORTUNITY} component={Opportunity} />
+                      <Route exact path={ROUTES.SPIRIT} component={Spirit} />
+                    </div>
                   </div>
                 </Content>
                 <Footer className="footer">Website is developed using NASA open API 2021</Footer>
