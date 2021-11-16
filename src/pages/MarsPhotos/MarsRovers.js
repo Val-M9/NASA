@@ -37,14 +37,12 @@ const MarsPhotos = () => {
     };
     result();
   }, []);
-  console.log(curiosity);
 
   return (
     <>
       {curiosity || opportunity || spirit ? (
         <>
-          <h1>Mars Rover Photos</h1>
-          <p className="mars--choose-p bordered">Choose the rover.</p>
+          <h1>Three rovers to choose</h1>
           <div className="mars-wrapper">
             {curiosity && (
               <Link to={ROUTES.CURIOSITY}>

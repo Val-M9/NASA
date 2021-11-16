@@ -36,21 +36,26 @@ const NearEarthObjects = () => {
   // end date must not be greater than week compare to start date
   const week = 691199999;
   const datesCompare = endDateForCampare - startDateForCampare;
-  console.log(datesCompare);
 
   return (
     <div>
       <h1>Near Earth Objects - Asteroids</h1>
       <p className="asteroids-description">
-        On this page you can choose dates and see information about near-Earth asteroids these days.
+        Choose dates and see information about near-Earth asteroids these days.
       </p>
       <div className="datepicker">
-        <DatePicker onChange={changeStartDateHandler} />
-        <span className="datepicker-span">Please choose the start date (by default - today)</span>
-        <DatePicker onChange={changeEndDateHandler} />
-        <span className="datepicker-span">
-          Pick the end date (should not be later than 7 days after start date)
-        </span>
+        <div
+          className="datepicker-item"
+          dataAttr="Please choose the start date (by default - today)">
+          <DatePicker onChange={changeStartDateHandler} />
+        </div>
+        <span className="datepicker-span">Start date</span>
+        <div
+          className="datepicker-item"
+          dataAttr="Pick the end date (should not be later than 7 days after start date)">
+          <DatePicker onChange={changeEndDateHandler} />
+        </div>
+        <span className="datepicker-span">End date</span>
       </div>
       {datesCompare > week ? (
         <p className="asteroids-description red">One week range please!</p>

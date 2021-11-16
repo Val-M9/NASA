@@ -23,7 +23,7 @@ const PicOfDay = () => {
 
   const changeDateHandler = (d) => {
     setDate(d && d._d.toISOString().split("T")[0]);
-    console.log(d);
+
     return date;
   };
 
@@ -35,10 +35,11 @@ const PicOfDay = () => {
     <div>
       <h1>Astonomy Picture of the Day</h1>
       <div className="datepicker">
-        <DatePicker onChange={changeDateHandler} disabledDate={disabledDate} />
+        <div className="datepicker-item" dataAttr="First picture is dated 1995-06-16.">
+          <DatePicker onChange={changeDateHandler} disabledDate={disabledDate} />
+        </div>
         <span className="datepicker-span">
-          Here you can pick the date and see the different pictures and videos of our fantastic
-          universe. First picture is dated 1995-06-16.
+          Pick up the date and see the different pictures and videos of our fantastic universe.
         </span>
       </div>
       {picture ? (

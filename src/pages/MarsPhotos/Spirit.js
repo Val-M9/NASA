@@ -104,8 +104,7 @@ const Spirit = () => {
           complete. A formal farewell took place at NASA headquarters shortly thereafter.
         </p>
         <p className="rover--description bordered">
-          On this page you can choose the date and select one of the rover's cameras to see the
-          photos taken.
+          Choose the date and select one of the rover's camera to see the photos taken.
         </p>
         <form className="rover--form">
           <Select
@@ -165,7 +164,7 @@ const Spirit = () => {
               </div>
             </>
           ) : date ? (
-            <h2 className="text-red">Sorry it appears no photo from this camera on {date}</h2>
+            <h2 className="text-red">Sorry, it appears no photo from this camera on {date}.</h2>
           ) : (
             <h2 className="text-red">Please select rover's camera and date.</h2>
           )}

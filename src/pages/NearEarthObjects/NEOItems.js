@@ -1,7 +1,6 @@
 import loader from "../../assets/loader/Ripple-1.4s-200px.svg";
 
 const NEOItems = ({ data }) => {
-  console.log(data);
   return (
     <>
       {data ? (

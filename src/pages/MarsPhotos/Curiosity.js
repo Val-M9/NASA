@@ -67,11 +67,11 @@ const Curiosity = () => {
   const disabledDate = (current) => {
     if (curiosity) {
       const start = moment(curiosity.landing_date, "YYYY-MM-DD");
-      const end = moment(curiosity.max_date, "YYYY-MM-DD");
+      const end = moment(curiosity.max_date, "YYYY-MM-DD").add(1, "d");
       return current < start || current > end;
     }
   };
-  console.log(curiosity);
+
   return (
     <div className="rover--wrapper">
       <div className="rover--header">
@@ -88,8 +88,7 @@ const Curiosity = () => {
           million mi) journey.
         </p>
         <p className="rover--description bordered">
-          On this page you can choose the date and select one of the rover's cameras to see the
-          photos taken.
+          Choose the date and select one of the rover's camera to see the photos taken.
         </p>
         <form className="rover--form">
           <Select
@@ -150,7 +149,7 @@ const Curiosity = () => {
               </div>
             </>
           ) : date ? (
-            <h2 className="text-red">Sorry it appears no photo from this camera on {date}</h2>
+            <h2 className="text-red">Sorry, it appears no photo from this camera on {date}.</h2>
           ) : (
             <h2 className="text-red">Please select rover's camera and date.</h2>
           )}
